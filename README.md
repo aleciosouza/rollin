@@ -1,0 +1,2 @@
+# rollin
+Rollin was an idea born from my desire to create a new personal project and put my programming skills to test in an application that implements new technologies and concepts that I want to learn. It's a web application where people can easily share bills, the idea is to be able to create an environment where expenses are informed and the amount each one must pay is automatically calculated.
