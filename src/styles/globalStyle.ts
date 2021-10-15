@@ -27,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
+    background-color: ${({ theme }) => theme.palette.primary.light};
   }
 
   /**
@@ -351,6 +352,19 @@ const GlobalStyle = createGlobalStyle`
 
   [hidden] {
     display: none;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  ul, ol {
+    padding: 0;
+    margin: 0;
+  }
+
+  ul {
+    list-style: none;
   }
 `;
 
