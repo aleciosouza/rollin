@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 
-// import { Container } from './styles';
+import { AppContext } from "../App/AppContext";
+import DateFilter from "../Common/DateFilter/DateFilter";
 
 const HomeHeader: React.FC = () => {
-  return <p>HomeHeader</p>;
+  const { filter } = useContext(AppContext);
+  return <DateFilter />;
 };
 
 export default HomeHeader;

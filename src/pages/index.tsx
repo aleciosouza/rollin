@@ -1,5 +1,8 @@
-import type { NextPage } from "next";
+import React from "react";
 import Head from "next/head";
+import type { NextPage } from "next";
+
+import App from "../components/App/App";
 
 const Home: NextPage = () => {
   return (
@@ -14,9 +17,7 @@ const Home: NextPage = () => {
         ></meta>
       </Head>
 
-      <main>
-        <h1>Rolling</h1>
-      </main>
+      <App />
     </div>
   );
 };
