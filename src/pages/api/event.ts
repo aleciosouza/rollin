@@ -23,12 +23,6 @@ export const events: Event[] = [
     name: "Party",
     date: moment("2022-03-01"),
   },
-  {
-    items: [],
-    creator: 2,
-    name: "Drugs",
-    date: moment("2022-04-01"),
-  },
 ];
 
 export default function handler(
