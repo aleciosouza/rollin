@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
    */
 
   html {
+    font-family: sans-serif;
     line-height: 1.15; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
   }
