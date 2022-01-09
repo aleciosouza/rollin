@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
-
-import { AppContext } from "../App/AppContext";
+import React from "react";
 
 import HomeHeader from "./HomeHeader";
+import EventList from "../Event/EventList";
+
+import * as Style from "../../styles/Home/HomeComponent";
 
 const HomeComponent: React.FC = () => {
-  const { filter } = useContext(AppContext);
   return (
-    <>
+    <Style.Container>
       <HomeHeader />
-      <p>{filter.format("LL")}</p>
-    </>
+      <EventList />
+    </Style.Container>
   );
 };
 
