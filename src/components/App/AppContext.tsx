@@ -1,23 +1,24 @@
-import React, {
-  useState,
-  Dispatch,
-  useEffect,
-  createContext,
-  SetStateAction,
-} from "react";
+import React, { useState, Dispatch, useEffect, SetStateAction } from "react";
+
+import { createContext } from "use-context-selector";
 
 import moment, { Moment } from "moment";
 
-import { Event } from "../Event/Event";
+import { Event } from "../../entities/Event/Event";
 
 import EventService from "../../services/Event/EventService";
+import { User } from "../../entities/User";
 
 interface IAppContext {
+  user?: User;
   lang: string;
+  event?: Event;
   filter: Moment;
   events: Event[];
   setFilter: Dispatch<SetStateAction<Moment>>;
   setEvents: Dispatch<SetStateAction<Event[]>>;
+  setUser: Dispatch<SetStateAction<User | undefined>>;
+  setEvent: Dispatch<SetStateAction<Event | undefined>>;
 }
 
 interface IAppProvider {
@@ -28,6 +29,8 @@ const initialState = {
   events: [],
   lang: "pt-br",
   filter: moment(),
+  setUser: () => {},
+  setEvent: () => {},
   setFilter: () => {},
   setEvents: () => {},
 };
@@ -37,6 +40,8 @@ export const AppContext = createContext<IAppContext>(initialState);
 const AppProvider: React.FC<IAppProvider> = ({ lang, children }) => {
   moment.locale(lang);
 
+  const [user, setUser] = useState<User>();
+  const [event, setEvent] = useState<Event>();
   const [events, setEvents] = useState<Event[]>([]);
   const [filter, setFilter] = useState<moment.Moment>(moment());
 
@@ -58,11 +63,15 @@ const AppProvider: React.FC<IAppProvider> = ({ lang, children }) => {
   return (
     <AppContext.Provider
       value={{
+        user,
         lang,
+        event,
         filter,
         events,
-        setEvents,
+        setUser,
+        setEvent,
         setFilter,
+        setEvents,
       }}
     >
       {children}
