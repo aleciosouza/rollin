@@ -8,7 +8,7 @@ interface ITrendingIcon {
 
 const TrendingIcon: React.FC<ITrendingIcon> = ({ down = false }) => (
   <Icon
-    name={`trending_down_${down ? "red" : "green"}.svg`}
+    name={`trending_${down ? "down_red" : "up_green"}.svg`}
     alt={`Seta para ${down ? "baixo" : "cima"}`}
   />
 );
