@@ -10,6 +10,7 @@ const rollingDarkTheme: DefaultTheme = {
       dark: "#102027",
       light: "#62727B",
       regular: "#37474F",
+      dark50: "#10202780",
     },
     red: {
       dark: "#7E2F2C",

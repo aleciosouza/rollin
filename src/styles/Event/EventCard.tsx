@@ -9,7 +9,7 @@ const greenBg = css`
 `;
 
 interface IContainer {
-  isDebt: boolean;
+  hasDebt: boolean;
 }
 
 export const EventContainer = styled.div`
@@ -60,6 +60,6 @@ export const Container = styled.div<IContainer>`
   color: ${({ theme }) => theme.palette.text.light};
 
   > ${Date}, > ${EventContainer} {
-    ${({ isDebt }) => (isDebt ? redBg : greenBg)}
+    ${({ hasDebt }) => (hasDebt ? redBg : greenBg)}
   }
 `;
