@@ -1,17 +1,16 @@
 import type { AppProps } from "next/app";
-import { ThemeProvider } from "styled-components";
 
 import AppProvider from "../components/App/AppContext";
-import { GlobalStyle, defaultTheme } from "../styles/globalStyle";
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+import globalStyles from '../styles/stitches.config';
+
+const MyApp = ({ Component, pageProps }: AppProps) => {  
+  globalStyles();
+
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <GlobalStyle />
-      <AppProvider lang="pt-br">
-        <Component {...pageProps} />
-      </AppProvider>
-    </ThemeProvider>
+    <AppProvider lang="pt-br">
+      <Component {...pageProps} />
+    </AppProvider>
   );
 };
 

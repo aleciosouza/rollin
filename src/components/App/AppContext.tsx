@@ -1,79 +1,23 @@
-import React, { useState, Dispatch, useEffect, SetStateAction } from "react";
-
+import React from "react";
 import { createContext } from "use-context-selector";
 
-import moment, { Moment } from "moment";
-
-import { Event } from "../../entities/Event/Event";
-
-import EventService from "../../services/Event/EventService";
-import { User } from "../../entities/User";
-
 interface IAppContext {
-  user?: User;
-  lang: string;
-  event?: Event;
-  filter: Moment;
-  events: Event[];
-  setFilter: Dispatch<SetStateAction<Moment>>;
-  setEvents: Dispatch<SetStateAction<Event[]>>;
-  setUser: Dispatch<SetStateAction<User | undefined>>;
-  setEvent: Dispatch<SetStateAction<Event | undefined>>;
+  children: React.ReactNode;
 }
 
 interface IAppProvider {
   lang: string;
+  children: any,
 }
 
 const initialState = {
-  events: [],
-  lang: "pt-br",
-  filter: moment(),
-  setUser: () => {},
-  setEvent: () => {},
-  setFilter: () => {},
-  setEvents: () => {},
 };
 
-export const AppContext = createContext<IAppContext>(initialState);
+export const AppContext = createContext(initialState);
 
-const AppProvider: React.FC<IAppProvider> = ({ lang, children }) => {
-  moment.locale(lang);
-
-  const [user, setUser] = useState<User>();
-  const [event, setEvent] = useState<Event>();
-  const [events, setEvents] = useState<Event[]>([]);
-  const [filter, setFilter] = useState<moment.Moment>(moment());
-
-  const $EventService = new EventService();
-
-  const initState = async () => {
-    try {
-      const _events = await $EventService.getEvents();
-      setEvents(_events);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    initState();
-  }, []);
-
+const AppProvider: React.FC<IAppProvider> = ({ children }) => {
   return (
-    <AppContext.Provider
-      value={{
-        user,
-        lang,
-        event,
-        filter,
-        events,
-        setUser,
-        setEvent,
-        setFilter,
-        setEvents,
-      }}
-    >
+    <AppContext.Provider value={{}}>
       {children}
     </AppContext.Provider>
   );
