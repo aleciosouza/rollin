@@ -22,7 +22,6 @@ const normalize: Record<string, any>[] = [
 
         ':where(abbr[title])': {
             textDecoration: 'underline',
-            // textDecoration: 'underline dotted',
         },
 
         ':where(b, strong)': { fontWeight: 'bolder' },
@@ -86,14 +85,12 @@ const normalize: Record<string, any>[] = [
             backgroundColor: 'white',
             border: 'solid',
             color: 'black',
-            // height: '-moz-fit-content',
             height: 'fit-content',
             left: '0',
             margin: 'auto',
             padding: '1em',
             position: 'absolute',
             right: '0',
-            // width: '-moz-fit-content',
             width: 'fit-content',
         },
 
@@ -118,13 +115,8 @@ const normalize: Record<string, any>[] = [
 ]
 
 const customGlobalStyles: Record<string, Stitches.CSS> = {
-    ".App": {
-        backgroundColor: "papayawhip"
-    },
-    body: {
-        border: "2px solid red",
-        minHeight: "100vh"
-    }
 };
 
 const globalStyles = globalCss(...normalize, customGlobalStyles);
+
+export default globalStyles;
