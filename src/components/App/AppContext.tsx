@@ -10,8 +10,7 @@ interface IAppProvider {
   children: any,
 }
 
-const initialState = {
-};
+const initialState = {};
 
 export const AppContext = createContext(initialState);
 

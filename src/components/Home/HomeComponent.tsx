@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
+import { styled } from '../../styles/stitches.config';
 
-import HomeHeader from "./HomeHeader";
-import HomeContent from "./HomeContent";
+import HomeHeader from './HomeHeader';
 
-const HomeComponent: React.FC = () => {
-  return (
-    <Style.Container>
-      <HomeHeader />
-      {/* <HomeContent /> */}
-    </Style.Container>
-  );
-};
+const Container = styled('div', {
+});
+
+const HomeComponent: React.FC = () => (
+    <Container>
+        <HomeHeader />
+    </Container>
+);
 
 export default HomeComponent;

@@ -1,7 +1,5 @@
-import React from "react";
+import HomeComponent from "../Home/HomeComponent";
 
-const App: React.FC = () => {
-  return <p>App</p>;
-};
+const App: React.FC = () => <HomeComponent />;
 
 export default App;
